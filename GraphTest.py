@@ -1,5 +1,6 @@
 import networkx as nx
-
+import pandas as pd
+from pandas import DataFrame as df
 
 class BuildingGraph():
     def __init__(self):
@@ -62,13 +63,60 @@ class BuildingGraph():
         for node, adjacent in self.edges.items():
             for adjacent_node, adjacent_info in adjacent.items():
                 G.add_edge(node, adjacent_node, distance=adjacent_info['distance'], name=adjacent_info['name'],
-                           direstion=adjacent_info['direction'])
+                           direction=adjacent_info['direction'])
         return (G)
+
+    def print_all_buildings(self,H)->pd.DataFrame:
+        buildings=H.node
+        buildings_dataframe=pd.DataFrame()
+        building_list=[]
+        code_list=[]
+        print("Following is the list of buildings you can navigate from/to")
+        print("--------------------------------------------------------")
+        for key, value in sorted(buildings.items()):
+            building_list.append(key)
+            code_list.append(value['code'])
+        buildings_dataframe['building'] = building_list
+        buildings_dataframe['code'] = code_list
+        print(buildings_dataframe)
+        return(buildings_dataframe)
+
+    def get_building_name(self,building_df,mail_code)->str:
+        id_mail_box=int(building_df.index[building_df['code']==mail_code].tolist()[0])
+        building_name=building_df['building'].get_value(id_mail_box)
+        return building_name
+
+    def print_shortest_path(self,H,shortest_path):
+        nodes=H.nodes()
+        edge_data={}
+        directions="Starting at "+shortest_path[0]
+        edge_data[shortest_path[0]]=H.get_edge_data(shortest_path[0],shortest_path[1])
+        for key, value in edge_data.items():
+            directions = directions + ", turn " + value['direction']
+        for items in range(1,len(shortest_path)-1):
+            if(shortest_path[items] in nodes):
+                edge_data[shortest_path[items]]=H.get_edge_data(shortest_path[items],shortest_path[items+1])
+                directions=directions+"\nAt "+shortest_path[items]
+                for key, value in edge_data.items():
+                    if(key==shortest_path[items]):
+                        directions=directions+", turn "+value['direction']
+        directions = directions +"\nProceed until you arrive at "+shortest_path[-1]
+        print(directions)
 
 H = nx.DiGraph()
 Buildings = BuildingGraph()
 H = Buildings.add_building_nodes(H)
+b=Buildings.print_all_buildings(H)
 H = Buildings.add_intersection_nodes(H)
 H = Buildings.add_edges(H)
-print(H.adj)
-print(nx.shortest_path(H, 'Foreign Language Buildings', 'Davenport Hall', weight = 'distance'))
+while(True):
+    user_input=input("Enter starting and ending mail codes")
+    user_data = user_input.split(" ")
+    user_data = [x.strip(' ') for x in user_data]
+    source=Buildings.get_building_name(b,user_data[0])
+    target=Buildings.get_building_name(b,user_data[1])
+    shortest_path=nx.shortest_path(H, source, target, weight='distance')
+    Buildings.print_shortest_path(H,shortest_path)
+    flag=input("Do you wish to continue? Please type Y to continue")
+    if(flag=='n' or flag=='N'):
+        break
