@@ -91,17 +91,59 @@ class BuildingGraph():
                 'Illini Hall':{'distance': 121, 'name': 'S. Wright Street', 'direction': 'South'},
                 'E. Green Street-S. Wright Street-W. Green Street':{'distance': 192, 'name': 'S. Wright Street', 'direction': 'North'}},
             'School of Nursing':{
-                'S. Goodwin-W. Green Street':{'distance':234,'name': 'S. Goodwin Ave', 'direction': 'South'},
-                'Burill Hall':{'distance': 345, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+                'S. Goodwin-W. Green Street':{'distance':433,'name': 'S. Goodwin Ave', 'direction': 'South'},
+                'Burill Hall':{'distance': 435, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
             'Burill Hall':{
-                'School of Nursing':{'distance':345, 'name': 'S. Goodwin Ave', 'direction': 'South'},
-                'Medical Sciences Building':{'distance':453, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+                'School of Nursing':{'distance':197, 'name': 'S. Goodwin Ave', 'direction': 'South'},
+                'Medical Sciences Building':{'distance':99999, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
             'Medical Sciences Building':{
-                'Burill Hall':{'distance':453, 'name': 'S. Goodwin Ave', 'direction': 'South'},
-                'Chemical and Life Sciences Laboratory':{'distance':345, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+                'Burill Hall':{'distance':99999, 'name': 'S. Goodwin Ave', 'direction': 'South'},
+                'Chemical and Life Sciences Laboratory':{'distance':15, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
             'Chemical and Life Sciences Laboratory':{
-                'Medical Sciences Building':{'distance':342, 'name': 'S. Goodwin Ave', 'direction': 'South'},
-                'S. Goodwin Ave-W. Oregon Street':{'distance':234, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+                'Medical Sciences Building':{'distance':15, 'name': 'S. Goodwin Ave', 'direction': 'South'},
+                'S. Goodwin Ave-W. Oregon Street':{'distance':387, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+            'S. Goodwin Ave-W. Oregon Street':{
+                'Chemical and Life Sciences Laboratory':{'distance':387, 'name': 'S. Goodwin Ave', 'direction': 'South'},
+                'S. Goodwin-W. Gregory':{'distance':1000, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+            'S. Goodwin-W. Gregory':{
+                'S. Goodwin Ave-W. Oregon Street':{'distance':1000, 'name': 'S. Goodwin Ave', 'direction': 'South'},
+                'UGL':{'distance':876, 'name': 'W. Gregory', 'direction': 'West'}},
+            'S. 6th Street-E. Gregory':{
+                'UGL':{'distance':850, 'name': 'W. Gregory', 'direction': 'West'},
+                'Armory':{'distance':915, 'name': 'S. 6th Street', 'direction': 'West'}},
+            'S 6th Street-E. Armory Avenue':{
+                'Armory':{'distance':95, 'name': 'S. 6th Street', 'direction': 'North'}
+                'S 5th Street-E. Armory Avenue':{'distance':456, 'name': 'E. Armory Avenue', 'direction': 'West'}},
+            'S 5th Street-E. Armory Avenue':{
+                'Armory':{'distance':30, 'name': 'E. Armory Avenue', 'direction': 'West'},
+                'Ice Arena':{'distance':60, 'name': 'S 5th Street', 'direction': 'North'}},
+            'S 5th Street-E. Daniel':{
+                'Ice Arena':{'distance':879, 'name': 'S 5th Street', 'direction': 'North'},
+                'School of Information Sciences':{'distance':190, 'name': 'E. Daniel', 'direction': 'North'}},
+            'S. 6th Street-E. Daniel Street':{
+                'School of Information Sciences':{'distance':240, 'name': 'E. Daniel', 'direction': 'East'},
+                'Department Of Psychology':{'distance':190, 'name': 'S. 6th Street', 'direction': 'South'}},
+            'E. Daniel-S. Wright Street':{
+                'Department Of Psychology':{'distance':496, 'name': 'S. 6th Street', 'direction': 'South'},
+                'Illini Book Store':{'distance':78, 'name': 'S. Wright Street', 'direction': 'North'}},
+            'S. Wright Street-E. Armory Avenue':{
+                'S. 6th Street-E. Armory Ave':{'distance':417, 'name': 'E. Armory Ave', 'direction': 'East'},
+                'Communications Library': {'distance':167, 'name': 'S. Wright Street', 'direction': 'North'}},
+            'E. Green Street-S. Wright Street-W. Green Street': {
+                'Arcade Building': {'distance':190, 'name': 'S. Wright Street', 'direction': 'North'},
+                'E. Green-S. 6th Street':{'distance':446, 'name': 'E. Green Street', 'direction': 'East'}},
+            'E. Green-S. 6th Street':{
+                'E. Green Street-S. Wright Street-W. Green Street':{'distance':446, 'name': 'E. Green Street', 'direction': 'East'},
+                'Arcade Building': {'distance':217, 'name': 'S. 6th Street', 'direction': 'North'}},
+            'W. Green Street-S. Matthews Avenue':{
+                'Burrill Hall':{'distance':443, 'name': 'S. Matthews Avenue', 'direction': 'North'},
+                'S. Goodwin-W. Green Street':{'distance':466, 'name': 'W. Green Street', 'direction': 'West'}},
+            'S. Goodwin-W. Green Street':{
+                'W. Green Street-S. Matthews Avenue':{'distance':446, 'name': 'W. Green Street', 'direction': 'West'},
+                'School of Nursing':{'distance':384, 'name': 'S. Goodwin', 'direction': 'North'}},
+                
+ 
+                
         }
 
     def add_building_nodes(self, G):
