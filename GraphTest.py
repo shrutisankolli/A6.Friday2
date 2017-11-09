@@ -90,6 +90,18 @@ class BuildingGraph():
             'Arcade Bldg':{
                 'Illini Hall':{'distance': 121, 'name': 'S. Wright Street', 'direction': 'South'},
                 'E. Green Street-S. Wright Street-W. Green Street':{'distance': 192, 'name': 'S. Wright Street', 'direction': 'North'}},
+            'School of Nursing':{
+                'S. Goodwin-W. Green Street':{'distance':234,'name': 'S. Goodwin Ave', 'direction': 'South'},
+                'Burill Hall':{'distance': 345, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+            'Burill Hall':{
+                'School of Nursing':{'distance':345, 'name': 'S. Goodwin Ave', 'direction': 'South'},
+                'Medical Sciences Building':{'distance':453, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+            'Medical Sciences Building':{
+                'Burill Hall':{'distance':453, 'name': 'S. Goodwin Ave', 'direction': 'South'},
+                'Chemical and Life Sciences Laboratory':{'distance':345, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+            'Chemical and Life Sciences Laboratory':{
+                'Medical Sciences Building':{'distance':342, 'name': 'S. Goodwin Ave', 'direction': 'South'},
+                'S. Goodwin Ave-W. Oregon Street':{'distance':234, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
         }
 
     def add_building_nodes(self, G):
