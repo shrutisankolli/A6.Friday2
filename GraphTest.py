@@ -12,7 +12,6 @@ class BuildingGraph():
                           'Undergrad Library': {'address': '1408 W. Gregory, Urbana', 'code': '522', 'access': 'W. Gregory'},
                           'Armory': {'address': '505 E. Armory, Champaign', 'code': '532', 'access': 'E. Armory'},
                           'Ice Arena': {'address': '406 E. Armory, Champaign', 'code': '525', 'access': 'S. 5th Street'},
-                          'Main Library': {'address': '1408 W. Gregory, Urbana', 'code': '522', 'access': 'E. Gregory'},
                           'Lincoln Hall': {'address': '702 S. Wright, Urbana', 'code': '456', 'access': 'S. Wright Street'},
                           'Gregory Hall': {'address': '810 S. Wright, Urbana', 'code': '462','access': 'S. Wright Street'},
                           'Psych Bldg': {'address': '603 E. Daniel, Champaign', 'code': '716', 'access': 'S. 6th Street'},
@@ -25,8 +24,8 @@ class BuildingGraph():
                           'School of Nursing': {'address': '905 S. Goodwin, Urbana', 'code': '186', 'access': 'S. Goodwin'},
                           'Burrill Hall': {'address': '407 S. Goodwin, Urbana', 'code': '114', 'access': 'S. Goodwin'},
                           'Medical Sciences Building': {'address': '506 S. Mathews, Urbana', 'code': '714', 'access': 'S Matthews Avenue'},
-                          'Chem & Life Sci Lab (CLSL)': {'address': '601 S. Goodwin, Urbana', 'code': '123', 'access': 'S Goodwin'}
-
+                          'Chem & Life Sci Lab (CLSL)': {'address': '601 S. Goodwin, Urbana', 'code': '123', 'access': 'S Goodwin'},
+                          'Altgeld Hall': {'address': '1409 W. Green, Urbana', 'code': '382', 'access': 'S. Wright Street'}
                           }
 
         # intersection = [street_name-street_name]
@@ -112,7 +111,7 @@ class BuildingGraph():
                 'UGL':{'distance':850, 'name': 'W. Gregory', 'direction': 'West'},
                 'Armory':{'distance':915, 'name': 'S. 6th Street', 'direction': 'West'}},
             'S 6th Street-E. Armory Avenue':{
-                'Armory':{'distance':95, 'name': 'S. 6th Street', 'direction': 'North'}
+                'Armory':{'distance':95, 'name': 'S. 6th Street', 'direction': 'North'},
                 'S 5th Street-E. Armory Avenue':{'distance':456, 'name': 'E. Armory Avenue', 'direction': 'West'}},
             'S 5th Street-E. Armory Avenue':{
                 'Armory':{'distance':30, 'name': 'E. Armory Avenue', 'direction': 'West'},
