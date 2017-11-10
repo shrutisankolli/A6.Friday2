@@ -146,16 +146,31 @@ class BuildingGraph():
         }
 
     def add_building_nodes(self, G):
+        '''
+        This method takes a directed graph as input and adds all the buildings as the nodes.
+        :param G: Takes a directed graph as input.
+        :return: Returns a graph with all the building nodes added
+        '''
         for name, attributes in self.buildings.items():
             G.add_node(name, address = attributes['address'], code = attributes['code'], access = attributes['access'])
         return (G)
 
     def add_intersection_nodes(self, G):
+        '''
+        This method takes a directed graph as input and adds all the intersections as the nodes.
+        :param G: Takes a directed graph as input.
+        :return: Returns a graph with all the intersection nodes added
+        '''
         for name in self.intersections:
             G.add_node(name)
         return (G)
 
     def add_edges(self, G):
+        '''
+        This method takes a directed graph as input and adds all the possible edges between the nodes.
+        :param G: Takes a directed graph as input.
+        :return: Returns a graph with all the egdge between nodes added
+        '''
         for node, adjacent in self.edges.items():
             for adjacent_node, adjacent_info in adjacent.items():
                 G.add_edge(node, adjacent_node, distance=adjacent_info['distance'], name=adjacent_info['name'],
@@ -163,6 +178,11 @@ class BuildingGraph():
         return (G)
 
     def print_all_buildings(self,H)->pd.DataFrame:
+        '''
+        This method prints out the building names sorted alphabetically
+        :param H: Takes the complete graph with all the nodes and edges
+        :return: A panda dataframe that has the building name and code for each building.
+        '''
         buildings=H.node
         buildings_dataframe=pd.DataFrame()
         building_list=[]
@@ -178,11 +198,41 @@ class BuildingGraph():
         return(buildings_dataframe)
 
     def get_building_name(self,building_df,mail_code)->str:
-        id_mail_box=int(building_df.index[building_df['code']==mail_code].tolist()[0])
-        building_name=building_df['building'].get_value(id_mail_box)
+        '''
+        This method prints out the building names corresponding to the input mail code
+        :param building_df: A Panda dataframe holding all the building names and its corresponding the mail codes.
+        :param mail_code: The mail code for a building
+        :return: The building name corresponding to the mail code
+
+        >>> Buildings.get_building_name(382)
+        'Altgeld Hall'
+
+        '''
+        try:
+            if(mail_code in building_df['code'].values):
+                id_mail_box=int(building_df.index[building_df['code']==mail_code].tolist()[0])
+                building_name=building_df['building'].get_value(id_mail_box)
+            else:
+                print("Incorrect mailcode "+mail_code+" entered. Please check the list of mailcodes present in our list and retry!")
+                building_name=""
+        except Exception:
+            print("Incorrect mailcode "+mail_code+"  entered. Please check the list of mailcodes present in our list and retry!")
         return building_name
 
     def print_shortest_path(self,H,shortest_path):
+        '''
+        This method prints out the shortest path between 2 building.
+        :param H: A directed graph having all the possible buildings and edges between them.
+        :param shortest_path: A list having the nodes in the shortest path between source and target.
+        :return:
+
+        >>> Buildings.print_shortest_path(H,['Illini Union BookStore', 'Coble Hall', 'Illini Hall', 'Arcade Bldg'])
+        'Starting at Illini Union BookStore, turn North
+         At Coble Hall, turn North
+         At Illini Hall, turn North
+         Proceed until you arrive at Arcade Bldg'
+
+        '''
         nodes=H.nodes()
         edge_data={}
         directions="Starting at "+shortest_path[0]
@@ -211,8 +261,11 @@ while(True):
     user_data = [x.strip(' ') for x in user_data]
     source=Buildings.get_building_name(b,user_data[0])
     target=Buildings.get_building_name(b,user_data[1])
-    shortest_path=nx.shortest_path(H, source, target, weight='distance')
-    Buildings.print_shortest_path(H,shortest_path)
+    try:
+        shortest_path=nx.shortest_path(H, source, target, weight='distance')
+        Buildings.print_shortest_path(H,shortest_path)
+    except Exception:
+        print("The "+source+" is not reachable from the "+target+" .Please check again!")
     flag=input("Do you wish to continue? Please type Y to continue")
     if(flag=='n' or flag=='N'):
         break
