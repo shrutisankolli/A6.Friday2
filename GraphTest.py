@@ -35,7 +35,8 @@ class BuildingGraph():
                               'E. Daniel-S. Wright Street', 'S. 5th Street-E. Daniel',
                               'S 6th Street-E. Armory', 'S. Wright Street-E. Armory',
                               'S. 6th Street-E. Gregory',
-                              'S. Goodwin-W. Oregon Street']
+                              'S. Goodwin-W. Oregon Street',
+                              'S. 5th Street-E. Armory']
 
         # edge = {building_name:{adjacent_node:{distance, street_name, street_direction}}}
         self.edges = {
