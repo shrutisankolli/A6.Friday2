@@ -7,7 +7,7 @@ class BuildingGraph():
         # building = {building_name:{mail_address, mail_code}}
         self.buildings = {'Foreign Language Buildings': {'address': '707 S. Matthews Ave., Urbana', 'code': '164', 'access':'S. Matthews Avenue'},
                           'Davenport Hall': {'address': '607 S. Mathews, Urbana', 'code': '148', 'access':'S. Matthews Avenue'},
-                          'Atmospheric Science Bldg': {'address': '103 S. Gregory, Urbana', 'code': '223', 'access': 'S. Matthews Avenue'},
+                          #'Atmospheric Science Bldg': {'address': '103 S. Gregory, Urbana', 'code': '223', 'access': 'S. Matthews Avenue'},
                           'Observatory': {'address': '901 S. Mathews, Urbana', 'code': '190', 'access': 'S. Matthews Avenue'},
                           'Undergrad Library': {'address': '1408 W. Gregory, Urbana', 'code': '522', 'access': 'W. Gregory'},
                           'Armory': {'address': '505 E. Armory, Champaign', 'code': '532', 'access': 'E. Armory'},
@@ -43,104 +43,168 @@ class BuildingGraph():
             'Foreign Language Buildings': {
                 'Davenport Hall': {'distance': 370, 'name': 'S. Matthews Avenue', 'direction': 'North'},
                 'Observatory': {'distance': 378, 'name': 'S. Matthews Avenue', 'direction': 'South'}},
+
             'Davenport Hall':{
                 'Foreign Language Buildings':{'distance': 370, 'name': 'S. Matthews Avenue', 'direction': 'South'},
                 'Medical Sciences Building':{'distance': 430, 'name': 'S. Matthews Avenue', 'direction': 'North'}},
-            'Atmospheric Science Bldg':{
-                'Medical Sciences Building':{'distance': 266, 'name': 'S. Matthews Avenue', 'direction': 'South'},
-                'W. Green Street-S. Matthews Avenue':{'distance': 420, 'name': 'S. Matthews Avenue', 'direction': 'North'}},
+
+
             'Observatory':{
                 'Foreign Language Buildings':{'distance': 378, 'name': 'S. Matthews Avenue', 'direction': 'North'}},
+
+
             'Undergrad Library':{
                 'S. Goodwin-W. Gregory':{'distance': 941, 'name': 'W. Gregory', 'direction': 'East'},
-                'Main Library':{'distance': 490, 'name': 'W. Gregory', 'direction': 'West'}},
+                'S. 6th Street-E. Gregory':{'distance': 490, 'name': 'W. Gregory', 'direction': 'West'}},
+
+
             'Armory':{
-                'S 6th Street-E. Armory':{'distance': 456, 'name': 'E. Armory', 'direction': 'East'},
-                'Ice Arena':{'distance': 154, 'name': 'E. Armory', 'direction': 'North'}},
+                'S 5th Street-E. Armory':{'distance': 456, 'name': 'E. Armory', 'direction': 'North'}},
+                #'Ice Arena':{'distance': 154, 'name': 'E. Armory', 'direction': 'North'}},
+
+
             'Ice Arena':{
-                'Armory':{'distance': 154, 'name': 'S. 5th Street', 'direction': 'South'},
+                'S. 5th Street-E. Armory':{'distance': 60, 'name': 'S. 5th Street', 'direction': 'South'},
                 'S. 5th Street-E. Daniel':{'distance': 775, 'name': 'S. 5th Street', 'direction': 'North'}},
-            'Main Library':{
-                'Undergrad Library':{'distance': 490, 'name': 'E. Gregory', 'direction': 'East'},
-                'S. 6th Street-E. Gregory':{'distance': 360, 'name': 'E. Gregory', 'direction': 'West'}},
+
+
+
             'Lincoln Hall':{
                 'E. Daniel-S. Wright Street':{'distance': 509, 'name': 'S. Wright Street', 'direction': 'North'},
                 'Gregory Hall':{'distance': 402, 'name': 'S. Wright Street', 'direction': 'South'}},
+
+
             'Gregory Hall':{
                 'Lincoln Hall':{'distance': 402, 'name': 'S. Wright Street', 'direction': 'North'},
-                'S 6th Street-E. Armory':{'distance': 405, 'name': 'S. Wright Street', 'direction': 'West'}},
+                'S. Wright Street-E. Armory':{'distance': 405, 'name': 'S. Wright Street', 'direction': 'South'}},
+
+
             'Psych Bldg':{
                 'S 6th Street-E. Armory':{'distance': 743, 'name': 'S. 6th Street', 'direction': 'South'},
-                'S. 6th Street-E. Daniel':{'distance': 180, 'name': 'S. 6th Street', 'direction': 'North'}},
+                'SPEECH AND HEARING SCIENCE':{'distance': 180, 'name': 'S. 6th Street', 'direction': 'North'}},
+
+
             'Library & Information Sci':{
                 'S. 5th Street-E. Daniel':{'distance': 129, 'name': 'E. Daniel', 'direction': 'West'},
-                'SPEECH AND HEARING SCIENCE':{'distance': 250, 'name': 'E. Daniel', 'direction': 'East'}},
+                'S. 6th Street-E. Daniel':{'distance': 250, 'name': 'E. Daniel', 'direction': 'East'}},
+
+
             'SPEECH AND HEARING SCIENCE':{
-                'Library & Information Sci':{'distance': 250, 'name': 'E. Daniel', 'direction': 'West'},
-                'S. 6th Street-E. Daniel':{'distance': 90, 'name': 'E. Daniel', 'direction': 'East'}},
+                'Psych Bldg':{'distance': 120, 'name': 'S. 6th Street', 'direction': 'South'},
+                'S. 6th Street-E. Daniel':{'distance': 90, 'name': 'S. 6th Street', 'direction': 'North'}},
+
+
             'Illini Union BookStore':{
                 'E. Daniel-S. Wright Street':{'distance': 117, 'name': 'S. Wright Street', 'direction': 'South'},
                 'Coble Hall':{'distance': 157, 'name': 'S. Wright Street', 'direction': 'North'}},
+
+
             'Coble Hall':{
                 'Illini Union BookStore':{'distance': 157, 'name': 'S. Wright Street', 'direction': 'South'},
-                'Illini Hall':{'distance': 268, 'name': 'S. Wright Street', 'direction': 'North'}},
+                'Altgeld Hall':{'distance': 216, 'name': 'S. Wright Street', 'direction': 'North'}},
+
+            'Altgeld Hall':{
+                'Coble Hall':{'distance': 216, 'name': 'S. Wright Street', 'direction': 'South'},
+                'Illini Hall':{'distance': 136, 'name': 'S. Wright Street', 'direction': 'North'}},
+
+
             'Illini Hall':{
-                'Coble Hall':{'distance': 268, 'name': 'S. Wright Street', 'direction': 'South'},
+                'Altgeld Hall':{'distance': 136, 'name': 'S. Wright Street', 'direction': 'South'},
                 'Arcade Bldg':{'distance': 121, 'name': 'S. Wright Street', 'direction': 'North'}},
+
+
             'Arcade Bldg':{
                 'Illini Hall':{'distance': 121, 'name': 'S. Wright Street', 'direction': 'South'},
                 'E. Green Street-S. Wright Street-W. Green Street':{'distance': 192, 'name': 'S. Wright Street', 'direction': 'North'}},
+
+
             'School of Nursing':{
-                'S. Goodwin-W. Green Street':{'distance':433,'name': 'S. Goodwin Ave', 'direction': 'South'},
-                'Burill Hall':{'distance': 435, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
-            'Burill Hall':{
-                'School of Nursing':{'distance':197, 'name': 'S. Goodwin Ave', 'direction': 'South'},
-                'Medical Sciences Building':{'distance':99999, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+                'S. Goodwin-W. Green Street':{'distance':433,'name': 'S. Goodwin Ave', 'direction': 'North'},
+                'Burrill Hall':{'distance': 435, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+
+
+            'Burrill Hall':{
+                'School of Nursing':{'distance':197, 'name': 'S. Goodwin Ave', 'direction': 'North'},
+                'Chem & Life Sci Lab (CLSL)':{'distance':849, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+
+
             'Medical Sciences Building':{
-                'Burill Hall':{'distance':99999, 'name': 'S. Goodwin Ave', 'direction': 'South'},
-                'Chemical and Life Sciences Laboratory':{'distance':15, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
-            'Chemical and Life Sciences Laboratory':{
-                'Medical Sciences Building':{'distance':15, 'name': 'S. Goodwin Ave', 'direction': 'South'},
-                'S. Goodwin Ave-W. Oregon Street':{'distance':387, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
-            'S. Goodwin Ave-W. Oregon Street':{
-                'Chemical and Life Sciences Laboratory':{'distance':387, 'name': 'S. Goodwin Ave', 'direction': 'South'},
-                'S. Goodwin-W. Gregory':{'distance':1000, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+                'W. Green Street-S. Matthews Avenue':{'distance':756, 'name': 'S. Matthews Avenue', 'direction': 'North'},
+                'Davenport Hall':{'distance':478, 'name': 'S. Matthews Avenue', 'direction': 'South'}},
+
+
+            'Chem & Life Sci Lab (CLSL)':{
+                'Burrill Hall':{'distance':543, 'name': 'S. Goodwin Ave', 'direction': 'North'},
+                'S. Goodwin-W. Oregon Street':{'distance':387, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+
+
+            'S. Goodwin-W. Oregon Street':{
+                'Chem & Life Sci Lab (CLSL)':{'distance':653, 'name': 'S. Goodwin Ave', 'direction': 'North'},
+                'S. Goodwin-W. Gregory':{'distance':732, 'name': 'S. Goodwin Ave', 'direction': 'South'}},
+
+
             'S. Goodwin-W. Gregory':{
-                'S. Goodwin Ave-W. Oregon Street':{'distance':1000, 'name': 'S. Goodwin Ave', 'direction': 'South'},
-                'UGL':{'distance':876, 'name': 'W. Gregory', 'direction': 'West'}},
+                'S. Goodwin-W. Oregon Street':{'distance':885, 'name': 'S. Goodwin Ave', 'direction': 'North'},
+                'Undergrad Library':{'distance':689, 'name': 'W. Gregory', 'direction': 'West'}},
+
+
             'S. 6th Street-E. Gregory':{
-                'UGL':{'distance':850, 'name': 'W. Gregory', 'direction': 'West'},
-                'Armory':{'distance':915, 'name': 'S. 6th Street', 'direction': 'West'}},
-            'S 6th Street-E. Armory Avenue':{
-                'Armory':{'distance':95, 'name': 'S. 6th Street', 'direction': 'North'},
-                'S 5th Street-E. Armory Avenue':{'distance':456, 'name': 'E. Armory Avenue', 'direction': 'West'}},
-            'S 5th Street-E. Armory Avenue':{
-                'Armory':{'distance':30, 'name': 'E. Armory Avenue', 'direction': 'West'},
-                'Ice Arena':{'distance':60, 'name': 'S 5th Street', 'direction': 'North'}},
-            'S 5th Street-E. Daniel':{
-                'Ice Arena':{'distance':879, 'name': 'S 5th Street', 'direction': 'North'},
-                'School of Information Sciences':{'distance':190, 'name': 'E. Daniel', 'direction': 'North'}},
-            'S. 6th Street-E. Daniel Street':{
-                'School of Information Sciences':{'distance':240, 'name': 'E. Daniel', 'direction': 'East'},
-                'Department Of Psychology':{'distance':190, 'name': 'S. 6th Street', 'direction': 'South'}},
+                'Undergrad Library':{'distance':850, 'name': 'W. Gregory', 'direction': 'East'},
+                'S 6th Street-E. Armory':{'distance':543, 'name': 'S. 6th Street', 'direction': 'North'}},
+
+
+            'S 6th Street-E. Armory':{
+                'S. 6th Street-E. Gregory':{'distance':586, 'name': 'S. 6th Street', 'direction': 'South'},
+                'S. Wright Street-E. Armory':{'distance':456, 'name': 'E. Armory Avenue', 'direction': 'East'},
+                'S. 5th Street-E. Armory':{'distance':530, 'name': 'E. Armory Avenue', 'direction': 'West'},
+                'Psych Bldg':{'distance':743, 'name': 'S. 6th Street', 'direction': 'North'}},
+
+
+            'S. 5th Street-E. Armory':{
+                'Armory':{'distance':30, 'name': 'E. Armory Avenue', 'direction': 'South'},
+                'Ice Arena':{'distance':60, 'name': 'S 5th Street', 'direction': 'North'},
+                'S 6th Street-E. Armory':{'distance':530, 'name': 'E. Armory Avenue', 'direction': 'East'}},
+
+
+            'S. 5th Street-E. Daniel':{
+                'Ice Arena':{'distance':879, 'name': 'S 5th Street', 'direction': 'South'},
+                'Library & Information Sci':{'distance':190, 'name': 'E. Daniel', 'direction': 'East'}},
+
+
+            'S. 6th Street-E. Daniel':{
+                'Library & Information Sci':{'distance':540, 'name': 'E. Daniel', 'direction': 'West'},
+                'SPEECH AND HEARING SCIENCE':{'distance':190, 'name': 'S. 6th Street', 'direction': 'South'},
+                'E. Daniel-S. Wright Street':{'distance':432, 'name': 'E. Daniel', 'direction': 'East'},
+                'E. Green-S. 6th Street':{'distance':1296, 'name': 'S. 6th street', 'direction': 'North'}},
+
             'E. Daniel-S. Wright Street':{
-                'Department Of Psychology':{'distance':496, 'name': 'S. 6th Street', 'direction': 'South'},
-                'Illini Book Store':{'distance':78, 'name': 'S. Wright Street', 'direction': 'North'}},
-            'S. Wright Street-E. Armory Avenue':{
-                'S. 6th Street-E. Armory Ave':{'distance':417, 'name': 'E. Armory Ave', 'direction': 'East'},
-                'Communications Library': {'distance':167, 'name': 'S. Wright Street', 'direction': 'North'}},
+                'Lincoln Hall':{'distance':509, 'name': 'S. Wright Street', 'direction': 'South'},
+                'Illini Union BookStore':{'distance':78, 'name': 'S. Wright Street', 'direction': 'North'},
+                'S. 6th Street-E. Daniel':{'distance':432, 'name': 'E. Daniel', 'direction': 'West'}},
+
+            'S. Wright Street-E. Armory':{
+                'S 6th Street-E. Armory':{'distance':417, 'name': 'E. Armory Avenue', 'direction': 'West'},
+                'Gregory Hall': {'distance':405, 'name': 'S. Wright Street', 'direction': 'North'}},
+
+
             'E. Green Street-S. Wright Street-W. Green Street': {
-                'Arcade Building': {'distance':190, 'name': 'S. Wright Street', 'direction': 'North'},
-                'E. Green-S. 6th Street':{'distance':446, 'name': 'E. Green Street', 'direction': 'East'}},
+                'Arcade Bldg': {'distance':190, 'name': 'S. Wright Street', 'direction': 'South'},
+                'E. Green-S. 6th Street':{'distance':446, 'name': 'E. Green Street', 'direction': 'West'},
+                'W. Green Street-S. Matthews Avenue':{'distance':842, 'name': 'W. Green Street', 'direction': 'East'}},
+
             'E. Green-S. 6th Street':{
                 'E. Green Street-S. Wright Street-W. Green Street':{'distance':446, 'name': 'E. Green Street', 'direction': 'East'},
-                'Arcade Building': {'distance':217, 'name': 'S. 6th Street', 'direction': 'North'}},
+                'S. 6th Street-E. Daniel': {'distance':1296, 'name': 'S. 6th Street', 'direction': 'South'}},
+
+
             'W. Green Street-S. Matthews Avenue':{
-                'Burrill Hall':{'distance':443, 'name': 'S. Matthews Avenue', 'direction': 'North'},
-                'S. Goodwin-W. Green Street':{'distance':466, 'name': 'W. Green Street', 'direction': 'West'}},
+                'Medical Sciences Building':{'distance':754, 'name': 'S. Matthews Avenue', 'direction': 'South'},
+                'S. Goodwin-W. Green Street':{'distance':589, 'name': 'W. Green Street', 'direction': 'East'},
+                'E. Green Street-S. Wright Street-W. Green Street':{'distance':842, 'name': 'W. Green Street', 'direction': 'West'}},
+
             'S. Goodwin-W. Green Street':{
-                'W. Green Street-S. Matthews Avenue':{'distance':446, 'name': 'W. Green Street', 'direction': 'West'},
-                'School of Nursing':{'distance':384, 'name': 'S. Goodwin', 'direction': 'North'}},
+                'W. Green Street-S. Matthews Avenue':{'distance':589, 'name': 'W. Green Street', 'direction': 'West'},
+                'School of Nursing':{'distance':384, 'name': 'S. Goodwin', 'direction': 'South'}},
                 
  
                 
