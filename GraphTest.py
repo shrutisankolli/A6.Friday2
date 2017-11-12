@@ -261,6 +261,7 @@ class BuildingGraph():
         :return: The building name corresponding to the mail code
         """
         building_name=""
+
         try:
             if (mail_code in building_df['code'].values):
                 id_mail_box = int(building_df.index[building_df['code'] == mail_code].tolist()[0])
@@ -289,14 +290,18 @@ class BuildingGraph():
         >>> test_b = BuildingGraph()
         >>> shortest_path=nx.shortest_path(test, 'Foreign Language Buildings', 'Davenport Hall', weight='distance')
         >>> test_b.print_shortest_path(test,shortest_path)
-        Starting at Foreign Language Buildings, turn South
+        Travel from Foreign Language Buildings to Davenport Hall
+        Starting at S. Matthews Avenue, turn South
         At Observatory, turn South
         Proceed until you arrive at Davenport Hall
         """
 
         nodes = H.nodes()
         edge_data = {}
-        directions = "Starting at " + shortest_path[0]
+        directions = "Travel from "+shortest_path[0]+" to "+shortest_path[-1]
+        for name,attributes in self.buildings.items():
+            if name==shortest_path[0]:
+                directions=directions + "\nStarting at " +attributes['access']
         edge_data[shortest_path[0]] = H.get_edge_data(shortest_path[0], shortest_path[1])
         for key, value in edge_data.items():
             directions = directions + ", turn " + value['direction']
