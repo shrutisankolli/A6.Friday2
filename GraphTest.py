@@ -81,11 +81,11 @@ class BuildingGraph():
 
             'Lincoln Hall': {
                 'E. Daniel-S. Wright Street': {'distance': 509, 'name': 'S. Wright Street', 'direction': 'North'},
-                'Gregory Hall': {'distance': 402, 'name': 'S. Wright Street', 'direction': 'South'}},
+                #'Gregory Hall': {'distance': 402, 'name': 'S. Wright Street', 'direction': 'South'}},
 
             'Gregory Hall': {
                 'Lincoln Hall': {'distance': 402, 'name': 'S. Wright Street', 'direction': 'North'},
-                'S. Wright Street-E. Armory': {'distance': 405, 'name': 'S. Wright Street', 'direction': 'South'}},
+                #'S. Wright Street-E. Armory': {'distance': 405, 'name': 'S. Wright Street', 'direction': 'South'}},
 
             'Psych Bldg': {
                 'S 6th Street-E. Armory': {'distance': 743, 'name': 'S. 6th Street', 'direction': 'South'},
